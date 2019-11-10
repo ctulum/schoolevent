@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/event_list_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/event_list_item_photo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/event_list_item_photo"
+        app:layout_constraintDimensionRatio="H, 16:9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <ImageView
+        android:id="@+id/event_list_item_gradient_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/event_gradient_top"
+        android:alpha="0.6"
+        android:contentDescription="@string/event_list_item_photo_top_gradient"
+        app:layout_constraintDimensionRatio="H, 16:9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <ImageView
+        android:id="@+id/event_list_item_gradient_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/event_gradient_bottom"
+        android:alpha="0.6"
+        android:contentDescription="@string/event_list_item_photo_bottom_gradient"
+        app:layout_constraintDimensionRatio="H, 16:9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+        android:id="@+id/event_list_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:ems="11"
+        app:layout_constraintBottom_toTopOf="@id/event_list_item_key"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/event_list_item_key"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="13sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:ems="15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/event_list_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:drawableStart="@drawable/ic_calendar"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:drawablePadding="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/event_list_item_club_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>
