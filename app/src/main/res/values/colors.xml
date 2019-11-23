@@ -2,9 +2,11 @@
 <resources>
     <color name="colorPrimary">#00377b</color>
     <color name="colorPrimaryDark">#231f20</color>
-    <color name="colorAccent">#fff</color>
+    <color name="colorAccent">#aaa</color>
     <color name="event_detail_hour_color">#f5f7ff</color>
     <color name="event_detail_hour_border_color">#5374ff</color>
     <color name="event_detail_date_color">#FFF1E0</color>
     <color name="event_detail_date_border_color">#FF9800</color>
+    <color name="borderColor">#e8e8e8</color>
+    <color name="white">#fff</color>
 </resources>

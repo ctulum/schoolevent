@@ -1,16 +1,14 @@
 package com.example.schoolevents.Models;
 
-import java.util.ArrayList;
-
 public class Event {
 
     private String id;
     private String name;
     private Photo photo;
-    private ArrayList<Photo> eventPhotos;
     private String description;
     private String keys;
     private String date;
+    private String instructorName;
 
     public String getId() {
         return id;
@@ -36,14 +34,6 @@ public class Event {
         this.photo = photo;
     }
 
-    public ArrayList<Photo> getEventPhotos() {
-        return eventPhotos;
-    }
-
-    public void setEventPhotos(ArrayList<Photo> eventPhotos) {
-        this.eventPhotos = eventPhotos;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -66,5 +56,13 @@ public class Event {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getInstructorName() {
+        return instructorName;
+    }
+
+    public void setInstructorName(String instructorName) {
+        this.instructorName = instructorName;
     }
 }

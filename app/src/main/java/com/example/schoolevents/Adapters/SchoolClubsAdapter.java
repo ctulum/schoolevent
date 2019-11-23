@@ -2,6 +2,7 @@ package com.example.schoolevents.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schoolevents.Activities.SchoolClubDetailActivity;
 import com.example.schoolevents.Models.SchoolClub;
 import com.example.schoolevents.R;
 
@@ -61,7 +63,8 @@ public class SchoolClubsAdapter extends BaseAdapter {
         schoolListItemContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Soon..", Toast.LENGTH_SHORT).show();
+                Intent clubIntent = new Intent(context, SchoolClubDetailActivity.class);
+                context.startActivity(clubIntent);
             }
         });
 

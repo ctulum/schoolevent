@@ -19,4 +19,14 @@
 
     <!-- Component Strings -->
     <string name="add_to_my_calendar">Add To My Calendar</string>
+
+    <!-- Arrays -->
+    <string-array name="event_types">
+        <item>Seminer</item>
+        <item>Workshop</item>
+    </string-array>
+
+    <!-- Navigation Drawer -->
+    <string name="close_drawer">Kapat</string>
+    <string name="open_drawer">Aç</string>
 </resources>
