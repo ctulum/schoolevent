@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.schoolevents">
 
-    <uses-permission android:name="android.permission.READ_CALENDAR"/>
-    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".Activities.EventBigPhotoActivity"
+        <activity
+            android:name=".Activities.CreateEventActivity"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Activities.CreateClubActivity"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Activities.RegisterActivity"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Activities.LoginActivity"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name=".Activities.SchoolClubDetailActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Activities.EventBigPhotoActivity"
             tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".Activities.EventDetailActivity"
