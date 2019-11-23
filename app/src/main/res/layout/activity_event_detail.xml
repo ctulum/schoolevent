@@ -101,7 +101,7 @@
         android:background="@drawable/event_detail_button_drawable"
         android:layout_margin="20dp"
         android:text="@string/add_to_my_calendar"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/white"
         android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/event_detail_container"
         app:layout_constraintStart_toStartOf="parent"
