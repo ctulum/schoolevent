@@ -1,22 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <include layout="@layout/toolbar" />
-    <android.support.design.widget.TabLayout
-        android:id="@+id/main_tab_layout"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:elevation="10dp"
-        app:tabGravity="fill"
-        app:tabMode="fixed"
-        app:tabTextColor="@color/colorAccent" />
-    <android.support.v4.view.ViewPager
-        android:id="@+id/main_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:orientation="vertical">
+        <include layout="@layout/toolbar" />
+        <android.support.design.widget.TabLayout
+            android:id="@+id/main_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:elevation="10dp"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabTextColor="@color/white" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/main_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/colorPrimary">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="24dp"
+                android:background="@color/white">
+                <ImageView
+                    android:id="@+id/sakarya_university_logo"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/university_logo"
+                    android:contentDescription="Sakarya Universitesi Logosu"
+                    app:layout_constraintDimensionRatio="H, 1:1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/sakarya_university"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Haşim Gürdamar Bilgisayar ve Bilişim Bilimleri Fakültesi"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/sakarya_university_logo"/>
+            </android.support.constraint.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giriş Yap"
+                    android:textColor="@color/white"
+                    android:padding="16dp"
+                    android:drawableEnd="@drawable/ic_action_arrow"/>
+                <TextView
+                    android:id="@+id/create_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Etkinlik Oluştur"
+                    android:textColor="@color/white"
+                    android:padding="16dp"
+                    android:drawableEnd="@drawable/ic_action_arrow"/>
+                <TextView
+                    android:id="@+id/create_club"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kulüp Oluştur"
+                    android:textColor="@color/white"
+                    android:padding="16dp"
+                    android:drawableEnd="@drawable/ic_action_arrow"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>
