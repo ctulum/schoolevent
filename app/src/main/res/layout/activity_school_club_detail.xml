@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +13,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/school_club_toolbar">
+        android:layout_below="@id/school_club_toolbar">
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -22,7 +23,6 @@
                 android:layout_height="0dp"
                 android:contentDescription="School Club Cover Image"
                 android:background="@color/borderColor"
-                android:src="@drawable/cover"
                 android:scaleType="centerCrop"
                 app:layout_constraintDimensionRatio="H, 16:9"
                 app:layout_constraintTop_toTopOf="parent"
@@ -37,7 +37,6 @@
                 android:scaleType="centerInside"
                 android:layout_marginBottom="20dp"
                 android:background="@color/white"
-                android:src="@drawable/logo"
                 app:layout_constraintDimensionRatio="H, 16:9"
                 app:layout_constraintBottom_toBottomOf="@id/school_club_cover_photo"
                 app:layout_constraintStart_toStartOf="parent"/>
@@ -54,16 +53,18 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
             <TextView
                 android:id="@+id/school_club_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginStart="20dp"
-                android:text="SauSiber"
+                android:maxLines="1"
+                android:ellipsize="end"
                 app:layout_constraintBottom_toBottomOf="@id/school_club_logo"
                 app:layout_constraintTop_toTopOf="@id/school_club_logo"
-                app:layout_constraintStart_toEndOf="@id/school_club_logo" />
+                app:layout_constraintStart_toEndOf="@id/school_club_logo"
+                app:layout_constraintEnd_toEndOf="parent"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,28 +86,58 @@
                     android:id="@+id/school_club_about_us_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis efficitur sollicitudin elementum. Aliquam fermentum malesuada eros a lobortis. Integer vitae ligula id justo egestas facilisis. Aliquam eu lacus ex. Mauris vestibulum lorem ac leo euismod, eu cursus ipsum rhoncus. Aenean nec nulla accumsan, pharetra neque ultricies, imperdiet est. Donec eget dolor urna. Sed mollis elit id nisl porttitor, nec semper dui tincidunt. Vivamus bibendum mi mauris, vel bibendum lorem malesuada vel. Suspendisse scelerisque augue at mollis vulputate."/>
-                <TextView
-                    android:id="@+id/school_club_last_events_title"
+                    android:textColor="@color/colorPrimaryDark" />
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Son Etkinlikler"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"/>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/borderColor"
-                    android:layout_marginBottom="10dp"/>
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/school_club_last_events"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/school_club_last_events_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Gelecek Etkinlikler"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/borderColor"
+                            android:layout_marginBottom="10dp"/>
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/school_club_last_events"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp" />
+                    </LinearLayout>
+                    <ProgressBar
+                        android:id="@+id/last_events_progress_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:indeterminateTint="@color/colorPrimary"
+                        android:visibility="gone"/>
+                    <TextView
+                        android:id="@+id/no_last_events_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:text="Bu kulubun hiç etkinliği bulunmamaktadır."
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
-</android.support.constraint.ConstraintLayout>
+    <ProgressBar
+        android:id="@+id/detail_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/colorPrimary"/>
+</RelativeLayout>

@@ -11,4 +11,19 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="10dp"
         android:padding="16dp"/>
+    <TextView
+        android:id="@+id/no_club_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Şuanda hiç kayıtlı kulüp bulunmamaktadır."
+        android:gravity="center"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+    <ProgressBar
+        android:id="@+id/club_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/colorPrimary"/>
 </RelativeLayout>

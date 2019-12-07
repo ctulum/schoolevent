@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.schoolevents.Activities.SchoolClubDetailActivity;
 import com.example.schoolevents.Models.SchoolClub;
 import com.example.schoolevents.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 
@@ -45,7 +46,7 @@ public class SchoolClubsAdapter extends BaseAdapter {
 
     @SuppressLint("InflateParams")
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;
         if(view == null) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
@@ -57,14 +58,16 @@ public class SchoolClubsAdapter extends BaseAdapter {
         TextView schoolNameTV = view.findViewById(R.id.school_list_item_name);
         TextView schoolDescTV = view.findViewById(R.id.school_list_item_desc);
 
-        profilePhotoIV.setImageResource(R.drawable.logo);
+        ImageLoader.getInstance().displayImage(schoolClubs.get(position).getLogo(), profilePhotoIV);
         schoolNameTV.setText(schoolClubs.get(position).getName());
-        schoolDescTV.setText(schoolClubs.get(position).getDescription());
+        schoolDescTV.setText(schoolClubs.get(position).getAbout());
+
         schoolListItemContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent clubIntent = new Intent(context, SchoolClubDetailActivity.class);
-                context.startActivity(clubIntent);
+                Intent detailIntent = new Intent(context, SchoolClubDetailActivity.class);
+                detailIntent.putExtra("club_id", schoolClubs.get(position).getId());
+                context.startActivity(detailIntent);
             }
         });
 

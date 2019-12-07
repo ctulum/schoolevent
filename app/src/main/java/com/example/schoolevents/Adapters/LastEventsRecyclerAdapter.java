@@ -2,6 +2,7 @@ package com.example.schoolevents.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.CardView;
@@ -13,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schoolevents.Activities.EventDetailActivity;
 import com.example.schoolevents.Models.Event;
 import com.example.schoolevents.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 
@@ -39,17 +42,18 @@ public class LastEventsRecyclerAdapter extends RecyclerView.Adapter<LastEventsRe
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final EventViewHolder holder, final int position) {
         Event event = events.get(position);
 
-        //holder.eventInstructor.setText(event.getInstructorName());
-        holder.eventImage.setImageResource(R.drawable.event2);
+        ImageLoader.getInstance().displayImage(events.get(position).getThumbnailUrl(), holder.eventImage);
         holder.eventName.setText(event.getName());
 
         holder.eventContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Soon...", Toast.LENGTH_SHORT).show();
+                Intent detailIntent = new Intent(context, EventDetailActivity.class);
+                detailIntent.putExtra("event_id", events.get(holder.getAdapterPosition()).getId());
+                context.startActivity(detailIntent);
             }
         });
     }

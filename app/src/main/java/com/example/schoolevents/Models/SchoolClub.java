@@ -1,18 +1,28 @@
 package com.example.schoolevents.Models;
 
-import android.graphics.drawable.Drawable;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 
 public class SchoolClub {
 
+    @SerializedName("_id")
+    @Expose
     private String id;
+    @SerializedName("name")
+    @Expose
     private String name;
+    @SerializedName("about")
+    @Expose
     private String about;
-    private String description;
-    private Drawable profilePhoto;
-    private ArrayList<Photo> eventPhotos;
-    private ArrayList<Event> events;
+    @SerializedName("logo_url")
+    @Expose
+    private String logo;
+    @SerializedName("cover_url")
+    @Expose
+    private String coverPhoto;
+    @SerializedName("created_at")
+    @Expose
     private String createdAt;
 
     public String getId() {
@@ -39,36 +49,20 @@ public class SchoolClub {
         this.about = about;
     }
 
-    public String getDescription() {
-        return description;
+    public String getLogo() {
+        return logo;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
-    public Drawable getProfilePhoto() {
-        return profilePhoto;
+    public String getCoverPhoto() {
+        return coverPhoto;
     }
 
-    public void setProfilePhoto(Drawable profilePhoto) {
-        this.profilePhoto = profilePhoto;
-    }
-
-    public ArrayList<Photo> getEventPhotos() {
-        return eventPhotos;
-    }
-
-    public void setEventPhotos(ArrayList<Photo> eventPhotos) {
-        this.eventPhotos = eventPhotos;
-    }
-
-    public ArrayList<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(ArrayList<Event> events) {
-        this.events = events;
+    public void setCoverPhoto(String coverPhoto) {
+        this.coverPhoto = coverPhoto;
     }
 
     public String getCreatedAt() {
