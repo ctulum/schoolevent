@@ -80,7 +80,8 @@
                     android:text="Etkinlik Oluştur"
                     android:textColor="@color/white"
                     android:padding="16dp"
-                    android:drawableEnd="@drawable/ic_action_arrow"/>
+                    android:drawableEnd="@drawable/ic_action_arrow"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/create_club"
                     android:layout_width="match_parent"
@@ -88,7 +89,17 @@
                     android:text="Kulüp Oluştur"
                     android:textColor="@color/white"
                     android:padding="16dp"
-                    android:drawableEnd="@drawable/ic_action_arrow"/>
+                    android:drawableEnd="@drawable/ic_action_arrow"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@+id/log_out"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Çıkış"
+                    android:textColor="@color/white"
+                    android:padding="16dp"
+                    android:drawableEnd="@drawable/ic_action_arrow"
+                    android:visibility="gone"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.design.widget.NavigationView>

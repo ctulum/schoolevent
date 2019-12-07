@@ -2,11 +2,10 @@ package com.example.schoolevents.Models;
 
 public class User {
 
-    private String id;
-    private String givenName;
-    private String familyName;
-    private String email;
-    private String password;
+    private static String id;
+    private static String email;
+    private static int accountType;
+    private static String password;
 
     private static User user;
 
@@ -16,43 +15,43 @@ public class User {
         user = new User();
     }
 
-    public String getId() {
+    public static String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public static void setId(String id) {
+        User.id = id;
     }
 
-    public String getGivenName() {
-        return givenName;
-    }
-
-    public void setGivenName(String givenName) {
-        this.givenName = givenName;
-    }
-
-    public String getFamilyName() {
-        return familyName;
-    }
-
-    public void setFamilyName(String familyName) {
-        this.familyName = familyName;
-    }
-
-    public String getEmail() {
+    public static String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public static void setEmail(String email) {
+        User.email = email;
     }
 
-    public String getPassword() {
+    public static String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public static void setPassword(String password) {
+        User.password = password;
+    }
+
+    public static User getUser() {
+        return user;
+    }
+
+    public static void setUser(User user) {
+        User.user = user;
+    }
+
+    public static int getAccountType() {
+        return accountType;
+    }
+
+    public static void setAccountType(int accountType) {
+        User.accountType = accountType;
     }
 }
