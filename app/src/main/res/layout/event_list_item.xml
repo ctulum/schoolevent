@@ -50,10 +50,10 @@
         android:maxLines="1"
         android:ellipsize="end"
         android:ems="11"
-        app:layout_constraintBottom_toTopOf="@id/event_list_item_key"
+        app:layout_constraintBottom_toTopOf="@id/event_instructor_name"
         app:layout_constraintStart_toStartOf="parent" />
     <TextView
-        android:id="@+id/event_list_item_key"
+        android:id="@+id/event_instructor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"

@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.schoolevents.Activities.EventDetailActivity;
 import com.example.schoolevents.Models.Event;
 import com.example.schoolevents.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 
@@ -44,7 +46,7 @@ public class EventAdapter extends BaseAdapter {
 
     @SuppressLint("InflateParams")
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;
         if(view == null) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
@@ -54,36 +56,21 @@ public class EventAdapter extends BaseAdapter {
         ConstraintLayout containerLayout = view.findViewById(R.id.event_list_item_container);
         ImageView eventPhotoIV = view.findViewById(R.id.event_list_item_photo);
         TextView eventNameTV = view.findViewById(R.id.event_list_item_name);
-        TextView eventKeysTV = view.findViewById(R.id.event_list_item_key);
+        TextView eventInstructorName = view.findViewById(R.id.event_instructor_name);
         TextView eventDateTV = view.findViewById(R.id.event_list_item_date);
         TextView eventClubNameTV = view.findViewById(R.id.event_list_item_club_name);
 
-        if(position % 2 == 1) {
-            if(position % 3 == 0) {
-                eventPhotoIV.setImageResource(R.drawable.event3);
-            } else {
-                eventPhotoIV.setImageResource(R.drawable.event1);
-            }
-        } else {
-            eventPhotoIV.setImageResource(R.drawable.event2);
-        }
+        ImageLoader.getInstance().displayImage(events.get(position).getThumbnailUrl(), eventPhotoIV);
         eventNameTV.setText(events.get(position).getName());
-        eventKeysTV.setText(events.get(position).getKeys());
+        eventInstructorName.setText(events.get(position).getInstructorName());
         eventDateTV.setText(events.get(position).getDate());
-        if(position % 2 == 1) {
-            if(position % 3 == 0) {
-                eventClubNameTV.setText("SauSiber");
-            } else {
-                eventClubNameTV.setText("Lorem");
-            }
-        } else {
-            eventClubNameTV.setText("İpsum Dolor");
-        }
+        eventClubNameTV.setText(events.get(position).getClub().getName());
 
         containerLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent detailIntent = new Intent(context, EventDetailActivity.class);
+                detailIntent.putExtra("event_id", events.get(position).getId());
                 context.startActivity(detailIntent);
             }
         });

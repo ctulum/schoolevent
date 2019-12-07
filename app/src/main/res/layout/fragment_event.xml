@@ -8,4 +8,20 @@
         android:id="@+id/event_list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/no_event_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Şuanda hiç etkinlik bulunmamaktadır."
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:gravity="center"/>
+    <ProgressBar
+        android:id="@+id/event_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/colorPrimary"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
 </RelativeLayout>

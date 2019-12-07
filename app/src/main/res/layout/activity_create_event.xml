@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,8 +8,11 @@
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".Activities.CreateEventActivity">
-    <include layout="@layout/toolbar" />
+    <include
+        android:id="@+id/event_toolbar"
+        layout="@layout/toolbar" />
     <ScrollView
+        android:layout_below="@id/event_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -196,4 +199,10 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+    <ProgressBar
+        android:id="@+id/create_event_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+</RelativeLayout>

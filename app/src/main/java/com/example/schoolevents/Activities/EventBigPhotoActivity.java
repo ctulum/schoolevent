@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.schoolevents.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class EventBigPhotoActivity extends AppCompatActivity {
 
@@ -14,11 +15,23 @@ public class EventBigPhotoActivity extends AppCompatActivity {
     private ImageView eventDetailBigPhotoIV;
     private ImageView eventDetailBackButton;
 
+    private String url;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_big_photo);
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            if(extras.containsKey("url"))
+                url = extras.getString("url");
+        }
         initActivity();
+        getPhoto();
+    }
+
+    private void getPhoto() {
+        ImageLoader.getInstance().displayImage(url, eventDetailBigPhotoIV);
     }
 
     private void initActivity() {
@@ -26,7 +39,6 @@ public class EventBigPhotoActivity extends AppCompatActivity {
         eventDetailBigPhotoIV = findViewById(R.id.event_detail_big_photo);
         eventDetailBackButton = findViewById(R.id.event_Detail_big_photo_back);
 
-        eventDetailBigPhotoIV.setImageResource(R.drawable.event3);
         eventDetailBigPhotoContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
