@@ -167,7 +167,6 @@ public class CreateClubActivity extends AppCompatActivity implements View.OnClic
                         .maxSelectable(1)
                         .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
                         .imageEngine(new Glide4Engine(CreateClubActivity.this))
-                        .theme(R.style.Matisse_Zhihu)
                         .forResult(1);
             } else {
                 Matisse.from(this)
@@ -176,7 +175,6 @@ public class CreateClubActivity extends AppCompatActivity implements View.OnClic
                         .maxSelectable(1)
                         .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
                         .imageEngine(new Glide4Engine(CreateClubActivity.this))
-                        .theme(R.style.Matisse_Zhihu)
                         .forResult(2);
             }
         }
@@ -217,17 +215,19 @@ public class CreateClubActivity extends AppCompatActivity implements View.OnClic
                 NetworkResponse networkResponse = error.networkResponse;
                 if(networkResponse != null) {
                     final String data = new String(networkResponse.data);
-                    AlertDialog.Builder builder = new AlertDialog.Builder(CreateClubActivity.this);
-                    builder.setTitle("Hata")
-                            .setMessage(data)
-                            .setNeutralButton("Tamam", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                    finish();
-                                }
-                            });
-                    builder.create().show();
+                    if(networkResponse.statusCode == 400) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(CreateClubActivity.this);
+                        builder.setTitle("Hata")
+                                .setMessage(data)
+                                .setNeutralButton("Tamam", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                        finish();
+                                    }
+                                });
+                        builder.create().show();
+                    }
                 } else {
                     Toast.makeText(CreateClubActivity.this, "Bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.", Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "onErrorResponse: error -> " + error);
