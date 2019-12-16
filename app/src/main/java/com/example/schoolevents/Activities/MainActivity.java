@@ -266,7 +266,6 @@ public class MainActivity extends AppCompatActivity {
         try {
             User.setId(user.getString("_id"));
             User.setEmail(user.getString("email"));
-            User.setAccountType(user.getInt("account_type"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -277,13 +276,30 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case 1:
-                createEventText.setVisibility(View.VISIBLE);
-                createClubText.setVisibility(View.VISIBLE);
-                logOutText.setVisibility(View.VISIBLE);
-                loginText.setVisibility(View.GONE);
+                if(resultCode == RESULT_OK) {
+                    if(AppHelper.getCurrSession() != null) {
+                        createEventText.setVisibility(View.VISIBLE);
+                        createClubText.setVisibility(View.VISIBLE);
+                        logOutText.setVisibility(View.VISIBLE);
+                        loginText.setVisibility(View.GONE);
+                    }
+                }
                 break;
             default:
                 break;
         }
+    }
+
+    private void showStatusError() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Hata")
+                .setMessage("Hesabınız hala onaylanmadı. Hesabınız onaylandığında kulüp kurabilir veya etkinlik oluşturabilirsiniz.")
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        builder.create().show();
     }
 }

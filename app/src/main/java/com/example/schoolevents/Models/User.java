@@ -5,6 +5,7 @@ public class User {
     private static String id;
     private static String email;
     private static int accountType;
+    private static boolean status;
     private static String password;
 
     private static User user;
@@ -53,5 +54,13 @@ public class User {
 
     public static void setAccountType(int accountType) {
         User.accountType = accountType;
+    }
+
+    public static boolean isStatus() {
+        return status;
+    }
+
+    public static void setStatus(boolean status) {
+        User.status = status;
     }
 }

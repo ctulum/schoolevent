@@ -27,7 +27,7 @@ public class AppHelper {
     private static AppHelper appHelper;
     private static String user;
 
-    private static String SERVER_URL = "http://192.168.1.36:3000";
+    private static String SERVER_URL = "http://18.195.147.168";
     //private static AlertDialog userDialog;
 
     // User details from the service
@@ -168,7 +168,8 @@ public class AppHelper {
     public static Map<String, String> getHeader() {
         Map<String, String> params = new HashMap<>();
         params.put("Content-Type", "application/json");
-        params.put("Authorization", getCurrSession().getAccessToken().getJWTToken());
+        if(getCurrSession() != null)
+            params.put("Authorization", getCurrSession().getAccessToken().getJWTToken());
         params.put("Platform", "ANDROID");
         return params;
     }

@@ -208,8 +208,9 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
                 int errorCount = validate();
                 if(errorCount == 0) {
                     try {
-                        if(mSelectedBrand.size() > 0) {
-                            createEvent();
+                        if(mSelectedBrand != null) {
+                            if(mSelectedBrand.size() > 0)
+                                createEvent();
                         } else
                             Toast.makeText(this, "Lütfen bir afiş seçiniz.", Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
@@ -238,7 +239,6 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
                     .maxSelectable(1)
                     .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
                     .imageEngine(new Glide4Engine(CreateEventActivity.this))
-                    .theme(R.style.Matisse_Zhihu)
                     .forResult(1);
         }
     }

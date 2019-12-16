@@ -2,6 +2,7 @@ package com.example.schoolevents.Activities;
 
 import android.content.Intent;
 import android.provider.CalendarContract;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -44,6 +45,8 @@ public class EventDetailActivity extends AppCompatActivity {
     private TextView eventDetailTimeTV;
     private Button calendarButton;
     private ProgressBar progressBar;
+    private ConstraintLayout infoContainer;
+    private ImageView infoCloseButton;
 
     private String eventDetailId;
     private Event event;
@@ -107,7 +110,7 @@ public class EventDetailActivity extends AppCompatActivity {
             eventDetailRequirementListTV.setVisibility(View.VISIBLE);
             eventDetailEventTypeTV.setText("Workshop");
             if(event.getRequirement() != null) {
-                eventDetailRequirementTextTV.setText(event.getRequirement());
+                eventDetailRequirementListTV.setText(event.getRequirement());
             } else eventDetailRequirementTextTV.setText("Belirtilmemiş.");
         }
         eventDetailPlaceTV.setText(event.getPlace());
@@ -128,6 +131,15 @@ public class EventDetailActivity extends AppCompatActivity {
         eventDetailTimeTV = findViewById(R.id.event_detail_time);
         calendarButton = findViewById(R.id.event_detail_calendar_button);
         progressBar = findViewById(R.id.event_detail_progress_bar);
+        infoCloseButton = findViewById(R.id.info_close_button);
+        infoContainer = findViewById(R.id.brand_info_container);
+
+        infoCloseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                infoContainer.setVisibility(View.GONE);
+            }
+        });
 
         eventDetailImageIV.setOnClickListener(new View.OnClickListener() {
             @Override

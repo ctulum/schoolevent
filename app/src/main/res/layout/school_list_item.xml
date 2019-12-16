@@ -34,7 +34,6 @@
                 android:id="@+id/school_list_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sausiber"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp"
                 android:maxLines="1"
@@ -43,7 +42,6 @@
                 android:id="@+id/school_list_item_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sakarya Üniversitesi Siber Güvenlik Kulübü"
                 android:textSize="12sp"
                 android:maxLines="2"
                 android:ellipsize="end" />
